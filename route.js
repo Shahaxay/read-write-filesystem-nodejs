@@ -4,9 +4,10 @@ const requestHandler=(req,res)=>{
     let url=req.url;
     if(url==='/'){
         //console.log("main",req.header);
+        console.log("home route");
         res.write("<html><body>");
         try{
-            res.write(`<p>${fs.readFileSync("message.txt")}</p>`)
+            res.write(`<p>${fs.readFileSync("./message.txt")}</p>`)
         }catch(e){
             console.log("file is not created yet");
             res.write(`<p>undefined</p>`)
@@ -24,11 +25,10 @@ const requestHandler=(req,res)=>{
             const msg=Buffer.concat(ar).toString();
             const actualMsg=msg.split("=")[1];
             console.log(actualMsg);
-            fs.writeFile("message.txt",actualMsg,err=>{
+            fs.writeFile("./message.txt",actualMsg,err=>{
                 res.statusCode=302; //redirection
                 res.setHeader('location','/');
                 res.end();
-                
             })
         })
     }

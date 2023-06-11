@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    //this is the configuration for debuging 
+    //by default we need to start debuging from app.js file since we need to start server first. if try to do from another file it will not debug
+    //no need to manully run the server for debuging, it will do internally
+    //by default debugger does not restart, we manually configure the file launch.json where "restart": true, "reuExecutable":"nodenom","console":"integratedTerminal"
+    //if we set the path of the app.js then from any where we can run debug, it will start from app.js only
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\sharpener_write_read_to_and_from_file\\app.js",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
+            "console": "integratedTerminal"
+        }
+    ]
+}
