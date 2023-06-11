@@ -51,4 +51,5 @@ const requestHandler=(req,res)=>{
 
 //NOTE: module can be omitted in ways3 only
 exports.handler=requestHandler;
+
 exports.text="exported property from js";
